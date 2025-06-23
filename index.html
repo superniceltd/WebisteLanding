@@ -153,13 +153,13 @@
 				// textures
 
 				const textureLoader = new THREE.TextureLoader();
-				const normalMap = textureLoader.load( 'models/obj/ninja/normal.png' );
-				const aoMap = textureLoader.load( 'models/obj/ninja/ao.jpg' );
-				const displacementMap = textureLoader.load( 'models/obj/ninja/displacement.jpg' );
+				//const normalMap = textureLoader.load( 'models/obj/ninja/normal.png' );
+				//const aoMap = textureLoader.load( 'models/obj/ninja/ao.jpg' );
+				//const displacementMap = textureLoader.load( 'models/obj/ninja/displacement.jpg' );
 
 				// material
 
-				material = new THREE.MeshStandardMaterial( {
+				/*material = new THREE.MeshStandardMaterial( {
 
 					color: 0xc1c1c1,
 					roughness: settings.roughness,
@@ -180,12 +180,19 @@
 
 					side: THREE.DoubleSide
 
-				} );
+				} );*/
+                
 
-				//
+				material = new THREE.MeshStandardMaterial({
+                    color: 0xc1c1c1,
+                    metalness: settings.metalness,
+                    roughness: settings.roughness,
+                    side: THREE.DoubleSide
+                });
+
 
 				const loader = new OBJLoader();
-				loader.load( 'models/obj/ninja/ninjaHead_Low.obj', function ( group ) {
+                loader.load( 'models/Smiley.obj', function ( group ) {
 
 					const geometry = group.children[ 0 ].geometry;
 					geometry.center();
